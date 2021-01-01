@@ -12,7 +12,7 @@ class Order extends Migration
 
 		$this->forge->addField([
 
-			'id_order' => [
+			'id' => [
 				'type' => 'INT',
 				'constraint' => 11,
 				'unsigned' => TRUE,
