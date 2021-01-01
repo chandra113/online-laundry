@@ -20,7 +20,7 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="form-group row">
                     <label for="sampul" class="col-sm-2 col-form-label">Pengambilan</label>
                     <div class="col-sm-5">
