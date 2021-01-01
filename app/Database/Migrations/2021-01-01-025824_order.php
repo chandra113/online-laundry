@@ -20,29 +20,28 @@ class Order extends Migration
 			],
 			'nama_konsumen' => [
 				'type' => 'VARCHAR',
-				'constraint' => 100,
+				'constraint' => 100
 			],
 			'alamat' => [
 				'type' => 'TEXT',
-				'constraint' => '100',
+				'constraint' => '100'
 			],
 			'nama_pakaian' => [
 				'type' => 'VARCHAR',
-				'constraint' => 100,
+				'constraint' => 100
 			],
 			'jumlah_pakaian' => [
 				'type' => 'INT',
-				'constraint' => 100,
+				'constraint' => 100
 			],
 			'penjemputan' => [
 				'type' => 'VARCHAR',
-				'constraint' => 100,
+				'constraint' => 100
 			],
 			'total_harga' => [
 				'type' => 'INT',
 				'constraint' => 11,
-				'unsigned' => TRUE,
-				'auto_increment' => TRUE
+				'unsigned' => TRUE
 			],
 
 
