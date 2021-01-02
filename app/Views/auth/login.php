@@ -10,11 +10,20 @@
                     <h3 class="panel-title">Silakan Login</h3>
                 </div>
                 <div class="panel-body">
+                
                     <!-- TODO: Ubah teks session ini jadi notifikasi -->
-                    <span class="txt2"><?= session()->getFlashdata('msg') ?></span>
+                    <?php if (session()->getFlashdata('msg') == TRUE) : ?> 
+                        <div class="alert alert-success" role="alert">
+                            <?= session()->getFlashdata('msg') ?>
+                        </div>
+                    <?php endif; ?>
 
                     <!-- TODO: Ubah teks session ini jadi alert -->
-                    <span class="txt2"><?= session()->getFlashdata('errlog') ?></span>
+                    <?php if (session()->getFlashdata('errlog') == TRUE) : ?> 
+                        <div class="alert alert-danger" role="alert">
+                            <?= session()->getFlashdata('errlog') ?>
+                        </div>
+                    <?php endif; ?>
 
                     <form accept-charset="UTF-8" action="<?= base_url('/auth/authLogin') ?>" role="form" method="POST">
                         <fieldset>

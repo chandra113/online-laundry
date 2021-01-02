@@ -93,7 +93,7 @@ class Auth extends BaseController
                 'role' => 2
             ]);
 
-            session()->setFlashdata('msg', 'Akun telah terdaftar');
+            session()->setFlashdata('msg', 'Akun berhasil terdaftar');
 
             return redirect()->to('/auth/login');
         } else {
