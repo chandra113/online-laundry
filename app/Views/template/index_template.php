@@ -28,7 +28,7 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Branding SIPUS -->
+      <!-- Branding Laundry -->
       <a class="navbar-brand" href="<?= base_url('/') ?>">LAundryKU</a>
 
       <ul class="navbar-nav mr-auto">
@@ -46,7 +46,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <!-- Ke Halaman Admin/index-->
               <?php if (session()->get('role') == 1) : ?>
-                <a class="dropdown-item" href="<?= base_url('/admin/'); ?>">Administrator</a>
+                <a class="dropdown-item" href="<?= base_url('/admin'); ?>">Administrator</a>
                 <div class="dropdown-divider"></div>
               <?php endif; ?>
               <!--Logout-->

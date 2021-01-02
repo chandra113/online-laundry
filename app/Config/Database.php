@@ -40,7 +40,7 @@ class Database extends \CodeIgniter\Database\Config
 		'DBDriver' => 'MySQLi',
 		'DBPrefix' => '',
 		'pConnect' => false,
-		'DBDebug'  => (ENVIRONMENT !== 'development'),
+		'DBDebug'  => (ENVIRONMENT !== 'production'),
 		'cacheOn'  => false,
 		'cacheDir' => '',
 		'charset'  => 'utf8',

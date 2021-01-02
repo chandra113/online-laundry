@@ -17,23 +17,31 @@ class Users extends Migration
 				'unsigned' => TRUE,
 				'auto_increment' => TRUE
 			],
-			'username' => [
-				'type' => 'VARCHAR',
-				'constraint' => 100
-			],
 			'fullname' => [
 				'type' => 'VARCHAR',
 				'constraint' => 100
 			],
+			'username' => [
+				'type' => 'VARCHAR',
+				'constraint' => 100
+			],
+			'email' => [
+				'type' => 'VARCHAR',
+				'constraint' => 100
+			],
 			'password' => [
-				'type' => 'TEXT',
+				'type' => 'VARCHAR',
 				'constraint' => '100',
+			],
+			'role' => [
+				'type' => 'INT',
+				'constraint' => '1',
 			],
 			'created_at' => [
 				'type' => 'DATETIME',
 				'null' => TRUE
 			],
-			'update_at' => [
+			'updated_at' => [
 				'type' => 'DATETIME',
 				'null' => TRUE
 			],

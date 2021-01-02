@@ -42,7 +42,7 @@ class Order extends Migration
 				'type' => 'INT',
 				'constraint' => 11,
 				'unsigned' => TRUE
-			],
+			]
 
 
 		]);

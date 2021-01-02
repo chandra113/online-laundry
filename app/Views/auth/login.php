@@ -10,17 +10,22 @@
                     <h3 class="panel-title">Silakan Login</h3>
                 </div>
                 <div class="panel-body">
-                    <form accept-charset="UTF-8" role="form">
+                    <!-- TODO: Ubah teks session ini jadi notifikasi -->
+                    <span class="txt2"><?= session()->getFlashdata('msg') ?></span>
+
+                    <!-- TODO: Ubah teks session ini jadi alert -->
+                    <span class="txt2"><?= session()->getFlashdata('errlog') ?></span>
+
+                    <form accept-charset="UTF-8" action="<?= base_url('/auth/authLogin') ?>" role="form" method="POST">
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="E-mail" name="email" type="email" required>
+                                <input class="form-control" placeholder="Username" name="username" value="<?= old('username') ?>" type="text" required>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
                             </div>
                             <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
                             <br>
-
                             <div class="text-center w-full p-t-23">
                                 <span class="txt1">
                                     Belum punya akun?
