@@ -6,8 +6,9 @@
         <div class="col-8">
             <h2 class="my-3">Waktu Masuk Laundry</h2>
 
-            <form action="<?= base_url('admin/save') ?>" method="POST">
-                <?= csrf_field(); ?>
+            <!-- TODO: Kasih method POST dll agar bisa passing data ke /laundry/checkout -->
+
+            <form action="<?= base_url('/laundry/checkout') ?>">
 
                 <div class="form-group row">
                     <label for="judul" class="col-sm-3 col-form-label">Tanggal Masuk</label>

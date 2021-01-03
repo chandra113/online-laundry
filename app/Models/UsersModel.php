@@ -13,10 +13,6 @@ class UsersModel extends Model
 
     public function getLogin($username)
     {
-        // $builder = $this->table('users');
-        // $builder->where('username', $username);
-        // $log = $builder->get()->getRow();
-        // return $log;
         return $this->table('users')->where('username', $username)->get()->getRow();
     }
 }

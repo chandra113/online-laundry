@@ -34,8 +34,10 @@ $routes->setAutoRoute(true);
 $routes->get('/auth/login', 'Auth::login');
 $routes->get('/auth/register', 'Auth::register');
 $routes->get('/', 'Customer::index');
-$routes->get('/masuk', 'Customer::masuk');
-$routes->get('/keluar', 'Customer::keluar');
+$routes->get('/laundry/cuci', 'Customer::cuci');
+$routes->get('/laundry/setrika', 'Customer::setrika');
+$routes->get('/laundry/cuci-setrika', 'Customer::cuci_setrika');
+$routes->get('/laundry/checkout', 'Customer::checkout');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

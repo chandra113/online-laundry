@@ -10,16 +10,14 @@
                     <h3 class="panel-title">Silakan Login</h3>
                 </div>
                 <div class="panel-body">
-                
-                    <!-- TODO: Ubah teks session ini jadi notifikasi -->
-                    <?php if (session()->getFlashdata('msg') == TRUE) : ?> 
+
+                    <?php if (session()->getFlashdata('msg') == TRUE) : ?>
                         <div class="alert alert-success" role="alert">
                             <?= session()->getFlashdata('msg') ?>
                         </div>
                     <?php endif; ?>
 
-                    <!-- TODO: Ubah teks session ini jadi alert -->
-                    <?php if (session()->getFlashdata('errlog') == TRUE) : ?> 
+                    <?php if (session()->getFlashdata('errlog') == TRUE) : ?>
                         <div class="alert alert-danger" role="alert">
                             <?= session()->getFlashdata('errlog') ?>
                         </div>

@@ -17,7 +17,7 @@
           <p class="card-text">
             Paket hanya mencuci pakaian
           </p>
-          <a href="<?= base_url('/customer/masuk') ?>" class="btn stretched-link"></a>
+          <a href="<?= base_url('/laundry/cuci') ?>" class="btn stretched-link"></a>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
           <h2 class="card-title">Setrika</h2>
           <p class="card-text">
             Paket hanya menyetrika pakaian</p>
-          <a href="#" class="btn stretched-link"></a>
+          <a href="<?= base_url('/laundry/setrika') ?>" class="btn stretched-link"></a>
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
           <p class="card-text">
             Paket mencuci dan menyetrika pakaian
           </p>
-          <a href="#" class="btn stretched-link"></a>
+          <a href="<?= base_url('/laundry/cuci-setrika') ?>" class="btn stretched-link"></a>
         </div>
       </div>
     </div>
