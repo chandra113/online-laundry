@@ -6,7 +6,6 @@ use CodeIgniter\Database\Migration;
 
 class Order extends Migration
 {
-
 	public function up()
 	{
 
@@ -18,20 +17,28 @@ class Order extends Migration
 				'unsigned' => TRUE,
 				'auto_increment' => TRUE
 			],
-			'nama_konsumen' => [
+			'nama_pelanggan' => [
+				'type' => 'VARCHAR',
+				'constraint' => 50
+			],
+			'nomor_ponsel' => [
+				'type' => 'VARCHAR',
+				'constraint' => 15
+			],
+			'kecepatan' => [
+				'type' => 'VARCHAR',
+				'constraint' => 50
+			],
+			'tanggal_masuk' => [
+				'type' => 'DATE',
+				'constraint' => 100
+			],
+			'jam_masuk' => [
 				'type' => 'VARCHAR',
 				'constraint' => 100
 			],
 			'alamat' => [
-				'type' => 'TEXT',
-				'constraint' => '100'
-			],
-			'nama_pakaian' => [
 				'type' => 'VARCHAR',
-				'constraint' => 100
-			],
-			'jumlah_pakaian' => [
-				'type' => 'INT',
 				'constraint' => 100
 			],
 			'penjemputan' => [
@@ -43,8 +50,6 @@ class Order extends Migration
 				'constraint' => 11,
 				'unsigned' => TRUE
 			]
-
-
 		]);
 
 		$this->forge->addKey('id', TRUE);

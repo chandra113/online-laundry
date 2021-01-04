@@ -19,23 +19,27 @@ class Users extends Migration
 			],
 			'fullname' => [
 				'type' => 'VARCHAR',
-				'constraint' => 100
+				'constraint' => 50
 			],
 			'username' => [
 				'type' => 'VARCHAR',
-				'constraint' => 100
+				'constraint' => 15
+			],
+			'number' => [
+				'type' => 'VARCHAR',
+				'constraint' => 15,
 			],
 			'email' => [
 				'type' => 'VARCHAR',
-				'constraint' => 100
+				'constraint' => 255
 			],
 			'password' => [
 				'type' => 'VARCHAR',
-				'constraint' => '100',
+				'constraint' => 255,
 			],
 			'role' => [
 				'type' => 'INT',
-				'constraint' => '1',
+				'constraint' => 1,
 			],
 			'created_at' => [
 				'type' => 'DATETIME',
@@ -44,9 +48,7 @@ class Users extends Migration
 			'updated_at' => [
 				'type' => 'DATETIME',
 				'null' => TRUE
-			],
-
-
+			]
 		]);
 
 

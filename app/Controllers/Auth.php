@@ -65,12 +65,22 @@ class Auth extends BaseController
         //Method untuk create user pada website
 
         $rules = [
+            //TODO: Tambahkan 'harus angka' yang diisi pada 'number'
+            // dan error handling untuk pembatasan karakter di fullname, username
+            // dan email
             'fullname' => 'required',
-            'email' => [
-                'rules' => 'required|is_unique[users.email]',
+            'number' => [
+                'rules' => 'required|is_unique[users.number]',
                 'errors' => [
                     'required' => '{field} harus diisi',
                     'is_unique' => '{field} sudah terdaftar'
+                ]
+            ],
+            'email' => [
+                'rules' => 'required|is_unique[users.email]',
+                'errors' => [
+                    'required' => 'Nomor harus diisi',
+                    'is_unique' => 'Nomor sudah terdaftar'
                 ]
             ],
             'username' => [
@@ -87,6 +97,7 @@ class Auth extends BaseController
             $this->usersModel->insert([
                 'fullname' => $this->request->getVar('fullname'),
                 'username' => $this->request->getVar('username'),
+                'number' => $this->request->getVar('number'),
                 'email' => $this->request->getVar('email'),
                 'password' => $this->request->getVar('password'),
                 //will add hash later, https://youtu.be/ryLg-EhgmJc?t=1860

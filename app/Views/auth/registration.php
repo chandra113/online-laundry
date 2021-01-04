@@ -25,6 +25,13 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <!-- TODO: Ubah tipe jadi integer, bisa ga ya? Biar yang ketangkep selalu angka, bkn yang lain -->
+                                <input class="form-control <?= ($validation->hasError('number')) ? 'is-invalid' : ''; ?>" placeholder="Nomor Kontak" name="number" type="text" value="<?= old('number') ?>" required>
+                                <div class="invalid-feedback">
+                                    <?= ($validation->getError('number')); ?>
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <input class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" placeholder="E-mail" name="email" type="email" value="<?= old('email') ?>" required>
                                 <div class="invalid-feedback">
                                     <?= ($validation->getError('email')); ?>
