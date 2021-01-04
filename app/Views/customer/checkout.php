@@ -2,6 +2,7 @@
 
 <?= $this->section('content'); ?>
 
+<!-- TODO: Ubah halaman ini jadi yang telah didiskusikan kemarin -->
 <div class="container">
     <div class="row">
         <div class="col">

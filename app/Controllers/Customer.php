@@ -1,22 +1,61 @@
-<?php namespace App\Controllers;
+<?php
+
+namespace App\Controllers;
 
 class Customer extends BaseController
 {
 	public function index()
 	{
 		//tampilan utama (pilihan layanan)
-		return view('customer/index');
+
+		$data = [
+			'title' => 'Beranda - LAundryKU'
+		];
+
+		return view('customer/index', $data);
 	}
 
-    public function masuk()
+	public function cuci()
 	{
-        //tampilan pilihan waktu masuk laundry
-        return view('customer/masuk');
+		//tampilan pilihan cuci saja
+
+		$data = [
+			'title' => 'Cuci - LAundryKU'
+		];
+
+		return view('customer/cuci', $data);
 	}
-	//--------------------------------------------------------------------
-	public function keluar()
+
+	public function setrika()
 	{
-        //tampilan pilihan Kecepatan dan Pengambilan laundry
-        return view('customer/keluar');
+		//tampilan pilihan setrika saja
+
+		$data = [
+			'title' => 'Setrika - LAundryKU'
+		];
+
+		return view('customer/setrika', $data);
+	}
+
+	public function cuci_setrika()
+	{
+		//tampilan pilihan laundry komplit
+
+		$data = [
+			'title' => 'Komplit - LAundryKU'
+		];
+
+		return view('customer/cuci-setrika', $data);
+	}
+
+	public function checkout()
+	{
+		//tampilan checkout
+
+		$data = [
+			'title' => 'Checkout - LAundryKU'
+		];
+
+		return view('customer/checkout', $data);
 	}
 }
