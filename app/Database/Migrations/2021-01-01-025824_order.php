@@ -30,8 +30,7 @@ class Order extends Migration
 				'constraint' => 50
 			],
 			'tanggal_masuk' => [
-				'type' => 'DATE',
-				'constraint' => 100
+				'type' => 'DATE'
 			],
 			'jam_masuk' => [
 				'type' => 'VARCHAR',
