@@ -38,8 +38,10 @@ class Auth extends BaseController
         if ($password == $row->password) {
             $data = [
                 'login' => TRUE,
+                'id_user' => $row->id,
                 'fullname' => $row->fullname,
                 'username' => $row->username,
+                'phone_number' => $row->phone_number,
                 'role' => $row->role
             ];
 
@@ -69,8 +71,8 @@ class Auth extends BaseController
             // dan error handling untuk pembatasan karakter di fullname, username
             // dan email
             'fullname' => 'required',
-            'number' => [
-                'rules' => 'required|is_unique[users.number]',
+            'phone_number' => [
+                'rules' => 'required|is_unique[users.phone_number]',
                 'errors' => [
                     'required' => '{field} harus diisi',
                     'is_unique' => '{field} sudah terdaftar'
@@ -97,7 +99,7 @@ class Auth extends BaseController
             $this->usersModel->insert([
                 'fullname' => $this->request->getVar('fullname'),
                 'username' => $this->request->getVar('username'),
-                'number' => $this->request->getVar('number'),
+                'phone_number' => $this->request->getVar('phone_number'),
                 'email' => $this->request->getVar('email'),
                 'password' => $this->request->getVar('password'),
                 //will add hash later, https://youtu.be/ryLg-EhgmJc?t=1860
@@ -111,5 +113,11 @@ class Auth extends BaseController
             $validator = \Config\Services::validation();
             return redirect()->to('/auth/register')->withInput()->with('validation', $validator);
         }
+    }
+
+    public function logout()
+    {
+        session()->destroy();
+        return redirect()->to('/');
     }
 }

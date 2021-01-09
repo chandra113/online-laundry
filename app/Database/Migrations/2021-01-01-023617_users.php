@@ -25,7 +25,7 @@ class Users extends Migration
 				'type' => 'VARCHAR',
 				'constraint' => 15
 			],
-			'number' => [
+			'phone_number' => [
 				'type' => 'VARCHAR',
 				'constraint' => 15,
 			],

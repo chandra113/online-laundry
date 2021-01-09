@@ -11,33 +11,33 @@
             <form action="<?= base_url('/laundry/checkout') ?>">
 
                 <div class="row mb-3">
-                    <label for="nama_pelanggan" class="col-sm-3 col-form-label">Nama Pelanggan</label>
+                    <label for="fullname" class="col-sm-3 col-form-label">Nama Pelanggan</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="customer name" name="customer name" placeholder="Masukkan Nama Pelanggan" value="<?= old('customer name') ?>" required>
+                        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Masukkan Nama Pelanggan" value="<?= session()->get('fullname') ?>" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
-                    <label for="phone number" class="col-sm-3 col-form-label">Nomor Ponsel</label>
+                    <label for="phone_number" class="col-sm-3 col-form-label">Nomor Telepon</label>
                     <div class="col-sm-6">
-                        <input type="number" class="form-control" id="phone number" name="phone number" placeholder="Masukkan Nomor Ponsel" value="<?= old('phone number') ?>" required>
+                        <input type="number" class="form-control" id="phone_number" name="phone_number" placeholder="Masukkan Nomor Telepon" value="<?= session()->get('phone_number') ?>" required>
                     </div>
                 </div>
-                
+
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Kecepatan</label>
                     <fieldset class="row mb-16">
                         <div class="col-md-10">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" required>
-                                <label class="form-check-label" for="gridRadios1">
-                                Kilat (1-2 Hari)
+                                <input class="form-check-input" type="radio" name="kilat" id="kilat" value="option1" required>
+                                <label class="form-check-label" for="kilat">
+                                    Kilat (1-2 Hari)
                                 </label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" required>
-                                <label class="form-check-label" for="gridRadios2">
-                                Reguler (3-4 Hari)
+                                <input class="form-check-input" type="radio" name="reguler" id="reguler" value="option2" required>
+                                <label class="form-check-label" for="reguler">
+                                    Reguler (3-4 Hari)
                                 </label>
                             </div>
                         </div>
@@ -48,20 +48,20 @@
                 <div class="form-group row">
                     <label for="tanggal_masuk" class="col-sm-3 col-form-label">Tanggal Masuk</label>
                     <div class="col-sm-6">
-                        <input type="date" class="form-control" id="date entry" name="date entry" placeholder="select Entry date" value="<?= old('date entry') ?>" min="2020-12-01" max="2030-12-31" required>
+                        <input type="date" class="form-control" id="tanggal_masuk" name="tanggal_masuk" placeholder="select Entry date" value="<?= old('tanggal_masuk') ?>" min="2020-12-01" max="2030-12-31" required>
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <label for="jam_masuk" class="col-sm-3 col-form-label">Jam Masuk</label>
                     <div class="col-sm-6">
-
-                        <input type="time" class="form-control" id="time entry" name="time entry" placeholder="Select time" value="<?= old('time entry') ?>" min="08-00" required>
+                        <input type="time" class="form-control" id="jam_masuk" name="jam_masuk" placeholder="Select time" value="<?= old('jam_masuk') ?>" min="08-00" required>
                     </div>
                 </div>
 
                 <div class="row mb-3">
                     <label for="alamat" class="col-md-3 form-label">Alamat</label>
-                    <textarea class="col-md-6 form-control" id="alamat" rows="3" placeholder="Masukkan Alamat Pelanggan" required></textarea>
+                    <textarea class="col-md-6 form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat Pelanggan" required></textarea>
                 </div>
 
                 <div class="form-group row">
