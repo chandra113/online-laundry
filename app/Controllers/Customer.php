@@ -58,4 +58,15 @@ class Customer extends BaseController
 
 		return view('customer/checkout', $data);
 	}
+
+	public function invoice()
+	{
+		//tampilan invoice
+
+		$data = [
+			'title' => 'Invoice - LAundryKU'
+		];
+
+		return view('customer/invoice', $data);
+	}
 }

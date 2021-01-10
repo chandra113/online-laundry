@@ -20,7 +20,7 @@
                 <div class="row mb-3">
                     <label for="phone_number" class="col-sm-3 col-form-label">Nomor Telepon</label>
                     <div class="col-sm-6">
-                        <input type="number" class="form-control" id="phone_number" name="phone_number" placeholder="Masukkan Nomor Telepon" value="<?= old('phone_number') ?>" required>
+                        <input type="number" class="form-control" id="phone_number" name="phone_number" placeholder="Masukkan Nomor Telepon" value="<?= session()->get('phone_number') ?>" required>
                     </div>
                 </div>
 
