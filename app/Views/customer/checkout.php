@@ -9,7 +9,7 @@
     </div>
 
     <div class="col-md-8">
-        <h3 class="mb-3">Detail Pesanan</h3>
+        <h2 class="mb-3">Detail Pesanan</h2>
 
         <div class="row">
             <div class="col-md-6 mb-3">
@@ -38,15 +38,15 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <h5 for="alamat">Alamat</h5>
-                <p><?= session()->get('alamat') ?></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis modi quas consequatur ratione. Perferendis error ut nulla repellendus minus mollitia ad, maiores sequi aliquam iste accusantium esse quibusdam ducimus inventore.</p>
             </div>
         </div>
 
         <br>
-        <br>
-        <h4 class="mb-3">Penyerahan Laundry</h4>
-        <form class="needs-validation" novalidate action="<?= base_url('/laundry/catatan') ?>">
-            <div class="col-block mb-3">
+        
+        <form class="needs-validation" novalidate action="<?= base_url() ?>">
+            <div class="col-block mb-4">
+                <h2>Penyerahan Laundry</h2>
                 <div class="custom-control custom-radio">
                     <input id="kilat" name="paymentMethod" type="radio" class="custom-control-input" value="option1" required>
                     <label class="custom-control-label" for="kilat">Dijemput oleh driver</label>
@@ -56,9 +56,13 @@
                     <label class="custom-control-label" for="reguler">Antar langsung ke toko</label>
                 </div>
             </div>    
-            
+            <div class="col-block mb-4">
+                <h2 for="alamat" >Catatan</h2>
+                <textarea class="col-md-6 form-control" id="catatan" name="catatan" rows="3" placeholder="Tuliskan Catatan untuk Kami" required></textarea>
+            </div>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Pesan dan Bayar</button>
         </action=>
+        <br>
         </form>
     </div>
 </div>
