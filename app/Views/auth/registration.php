@@ -26,9 +26,9 @@
                             </div>
                             <div class="form-group">
                                 <!-- TODO: Ubah tipe jadi integer, bisa ga ya? Biar yang ketangkep selalu angka, bkn yang lain -->
-                                <input class="form-control <?= ($validation->hasError('number')) ? 'is-invalid' : ''; ?>" placeholder="Nomor Telepon" name="phone_number" type="text" value="<?= old('phone_number') ?>" required>
+                                <input class="form-control <?= ($validation->hasError('phone_number')) ? 'is-invalid' : ''; ?>" placeholder="Nomor Telepon" name="phone_number" type="text" value="<?= old('phone_number') ?>" required>
                                 <div class="invalid-feedback">
-                                    <?= ($validation->getError('number')); ?>
+                                    <?= ($validation->getError('phone_number')); ?>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input class="form-control <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>" placeholder="Password" name="password" type="password" value="" required>
+                                <input class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" placeholder="Password" name="password" type="password" value="" required>
                                 <div class="invalid-feedback">
                                     Tidak boleh kosong
                                 </div>

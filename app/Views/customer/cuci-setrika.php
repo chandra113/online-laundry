@@ -6,9 +6,7 @@
         <div class="col-8">
             <h2 class="my-3">Data Laundry Masuk</h2>
 
-            <!-- TODO: Kasih method POST dll agar bisa passing data ke /laundry/checkout -->
-
-            <form action="<?= base_url('/laundry/checkout') ?>">
+            <form action="<?= base_url('/laundry/redirectCheckout') ?>" method="POST">
 
                 <div class="row mb-3">
                     <label for="fullname" class="col-sm-3 col-form-label">Nama Pelanggan</label>
@@ -28,15 +26,14 @@
                     <label class="col-sm-3 col-form-label">Kecepatan</label>
                     <div class="d-block my-3">
                         <div class="custom-control custom-radio">
-                            <input id="kilat" name="paymentMethod" type="radio" class="custom-control-input" value="option1" required>
+                            <input id="kilat" name="kecepatan" type="radio" class="custom-control-input" value="Kilat (1-2 Hari)" required>
                             <label class="custom-control-label" for="kilat">Kilat (1-2 Hari)</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input id="reguler" name="paymentMethod" type="radio" class="custom-control-input" value="option2" required>
+                            <input id="reguler" name="kecepatan" type="radio" class="custom-control-input" value="Reguler (3-4 Hari)" required>
                             <label class="custom-control-label" for="reguler">Reguler (3-4 Hari)</label>
                         </div>
                     </div>
-                    
                 </div>
 
 

@@ -38,6 +38,7 @@ class Auth extends BaseController
         if ($password == $row->password) {
             $data = [
                 'login' => TRUE,
+                'checkout' => FALSE,
                 'id_user' => $row->id,
                 'fullname' => $row->fullname,
                 'username' => $row->username,
@@ -74,22 +75,22 @@ class Auth extends BaseController
             'phone_number' => [
                 'rules' => 'required|is_unique[users.phone_number]',
                 'errors' => [
-                    'required' => '{field} harus diisi',
-                    'is_unique' => '{field} sudah terdaftar'
+                    'required' => 'Nomor telepon harus diisi',
+                    'is_unique' => 'Nomor telepon sudah terdaftar'
                 ]
             ],
             'email' => [
                 'rules' => 'required|is_unique[users.email]',
                 'errors' => [
-                    'required' => 'Nomor harus diisi',
-                    'is_unique' => 'Nomor sudah terdaftar'
+                    'required' => 'Email harus diisi',
+                    'is_unique' => 'Email sudah terdaftar'
                 ]
             ],
             'username' => [
                 'rules' => 'required|is_unique[users.username]',
                 'errors' => [
-                    'required' => '{field} harus diisi',
-                    'is_unique' => '{field} sudah terdaftar'
+                    'required' => 'Username harus diisi',
+                    'is_unique' => 'Username sudah terdaftar'
                 ]
             ],
             'password' => 'required'

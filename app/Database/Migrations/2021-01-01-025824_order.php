@@ -25,6 +25,10 @@ class Order extends Migration
 				'type' => 'VARCHAR',
 				'constraint' => 15
 			],
+			'layanan' => [
+				'type' => 'VARCHAR',
+				'constraint' => 50
+			],
 			'kecepatan' => [
 				'type' => 'VARCHAR',
 				'constraint' => 50
@@ -41,6 +45,10 @@ class Order extends Migration
 				'constraint' => 100
 			],
 			'penjemputan' => [
+				'type' => 'VARCHAR',
+				'constraint' => 10
+			],
+			'catatan' => [
 				'type' => 'VARCHAR',
 				'constraint' => 100
 			],

@@ -23,6 +23,8 @@ class Customer extends BaseController
 			'title' => 'Cuci - LAundryKU'
 		];
 
+		session()->set('layanan', 'Cuci');
+
 		return view('customer/cuci', $data);
 	}
 
@@ -33,6 +35,8 @@ class Customer extends BaseController
 		$data = [
 			'title' => 'Setrika - LAundryKU'
 		];
+
+		session()->set('layanan', 'Setrika');
 
 		return view('customer/setrika', $data);
 	}
@@ -45,12 +49,18 @@ class Customer extends BaseController
 			'title' => 'Komplit - LAundryKU'
 		];
 
+		session()->set('layanan', 'Cuci Setrika');
+
 		return view('customer/cuci-setrika', $data);
 	}
 
 	public function checkout()
 	{
 		//tampilan checkout
+
+		if (session()->get('checkout') == FALSE) {
+			return redirect()->to('/');
+		}
 
 		$data = [
 			'title' => 'Checkout - LAundryKU'
@@ -59,15 +69,20 @@ class Customer extends BaseController
 		return view('customer/checkout', $data);
 	}
 
-	public function catatan()
+	public function redirectCheckout()
 	{
-		//tampilan checkout
+		//Method untuk memproses form layanan
 
 		$data = [
-			'title' => 'Catatan - LAundryKU'
+			'checkout' => TRUE,
+			'kecepatan' => $this->request->getVar('kecepatan'),
+			'tanggal_masuk' => $this->request->getVar('tanggal_masuk'),
+			'jam_masuk' => $this->request->getVar('jam_masuk'),
+			'alamat' => $this->request->getVar('alamat')
 		];
 
-		return view('customer/catatan', $data);
+		session()->set($data);
+		return redirect()->to('/laundry/checkout');
 	}
 
 	public function invoice()

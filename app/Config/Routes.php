@@ -41,6 +41,7 @@ $routes->get('/laundry/cuci-setrika', 'Customer::cuci_setrika');
 $routes->get('/laundry/checkout', 'Customer::checkout');
 $routes->get('/laundry/catatan', 'Customer::catatan');
 $routes->get('/laundry/invoice', 'Customer::invoice');
+$routes->post('/laundry/redirectCheckout', 'Customer::redirectCheckout');
 /**
  * --------------------------------------------------------------------
  * Additional Routing
