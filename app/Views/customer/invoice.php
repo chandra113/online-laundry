@@ -14,12 +14,17 @@
                 <div class="col-sm-6">
                     <h6 class="mb-3">Atas Nama:</h6>
                     <div>
-                        <strong>Good Omen</strong>
+                        <strong><?= session()->get('fullname') ?></strong>
                     </div>
                     <div>Alamat</div>
-                    <div>Keterangan Alamat</div>
-                    <div>Email: good@omen.com</div>
+                    <div>
+                        <p><?= session()->get('alamat') ?></p>
+                    </div>
+                    <div>
+                        <p><?= session()->get('email') ?></p>
+                    </div>
                     <div>Nomor Telepon: 0813-sekian</div>
+                    <div>Catatan untuk Kurir: Lope Yu</div>
                 </div>
             </div>
 
@@ -71,7 +76,7 @@
                             </tr>
                             <tr>
                                 <td class="left">
-                                    <strong>VAT (10%)</strong>
+                                    <strong>PPN (10%)</strong>
                                 </td>
                                 <td class="right">$679,76</td>
                             </tr>

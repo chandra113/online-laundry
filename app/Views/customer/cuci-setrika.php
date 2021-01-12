@@ -26,22 +26,17 @@
 
                 <div class="row mb-3">
                     <label class="col-sm-3 col-form-label">Kecepatan</label>
-                    <fieldset class="row mb-16">
-                        <div class="col-md-10">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="kilat" id="kilat" value="option1" required>
-                                <label class="form-check-label" for="kilat">
-                                    Kilat (1-2 Hari)
-                                </label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="reguler" id="reguler" value="option2" required>
-                                <label class="form-check-label" for="reguler">
-                                    Reguler (3-4 Hari)
-                                </label>
-                            </div>
+                    <div class="d-block my-3">
+                        <div class="custom-control custom-radio">
+                            <input id="kilat" name="paymentMethod" type="radio" class="custom-control-input" value="option1" required>
+                            <label class="custom-control-label" for="kilat">Kilat (1-2 Hari)</label>
                         </div>
-                    </fieldset>
+                        <div class="custom-control custom-radio">
+                            <input id="reguler" name="paymentMethod" type="radio" class="custom-control-input" value="option2" required>
+                            <label class="custom-control-label" for="reguler">Reguler (3-4 Hari)</label>
+                        </div>
+                    </div>
+                    
                 </div>
 
 

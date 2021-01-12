@@ -59,6 +59,17 @@ class Customer extends BaseController
 		return view('customer/checkout', $data);
 	}
 
+	public function catatan()
+	{
+		//tampilan checkout
+
+		$data = [
+			'title' => 'Catatan - LAundryKU'
+		];
+
+		return view('customer/catatan', $data);
+	}
+
 	public function invoice()
 	{
 		//tampilan invoice

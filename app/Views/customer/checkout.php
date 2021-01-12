@@ -38,30 +38,27 @@
         <div class="row">
             <div class="col-md-6 mb-3">
                 <h5 for="alamat">Alamat</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet ex sagittis, mollis mi sit amet, sodales sem.</p>
+                <p><?= session()->get('alamat') ?></p>
             </div>
         </div>
 
+        <br>
+        <br>
         <h4 class="mb-3">Penyerahan Laundry</h4>
-
-        <form class="needs-validation" novalidate>
-            <fieldset class="row mb-16">
-                <div class="col-md-10">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="jemput" id="jemput" required>
-                        <label class="form-check-label" for="jemput">
-                            Dijemput oleh driver
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="antar" id="antar" required>
-                        <label class="form-check-label" for="antar">
-                            Antar langsung ke toko
-                        </label>
-                    </div>
+        <form class="needs-validation" novalidate action="<?= base_url('/laundry/catatan') ?>">
+            <div class="col-block mb-3">
+                <div class="custom-control custom-radio">
+                    <input id="kilat" name="paymentMethod" type="radio" class="custom-control-input" value="option1" required>
+                    <label class="custom-control-label" for="kilat">Dijemput oleh driver</label>
                 </div>
-            </fieldset>
+                <div class="custom-control custom-radio">
+                    <input id="reguler" name="paymentMethod" type="radio" class="custom-control-input" value="option2" required>
+                    <label class="custom-control-label" for="reguler">Antar langsung ke toko</label>
+                </div>
+            </div>    
+            
             <button class="btn btn-primary btn-lg btn-block" type="submit">Pesan dan Bayar</button>
+        </action=>
         </form>
     </div>
 </div>
