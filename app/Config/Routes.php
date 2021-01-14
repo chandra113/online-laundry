@@ -42,6 +42,7 @@ $routes->get('/laundry/checkout', 'Customer::checkout');
 $routes->get('/laundry/catatan', 'Customer::catatan');
 $routes->get('/laundry/invoice', 'Customer::invoice');
 $routes->post('/laundry/redirectCheckout', 'Customer::redirectCheckout');
+$routes->post('/laundry/saveLayanan', 'Customer::saveLayanan'); //Method coba2 untuk liat harga berubah apa ngga #delsoon
 /**
  * --------------------------------------------------------------------
  * Additional Routing

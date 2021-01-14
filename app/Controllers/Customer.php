@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 class Customer extends BaseController
 {
+
 	public function index()
 	{
 		//tampilan utama (pilihan layanan)
@@ -62,8 +63,35 @@ class Customer extends BaseController
 			return redirect()->to('/');
 		}
 
+		switch (session()->get('layanan')) {
+			case "Setrika":
+				if (session()->get('kecepatan') == 'Kilat (1-2 Hari)') {
+					$harga = 20000;
+				} else {
+					$harga = 10000;
+				}
+				break;
+
+			case "Cuci":
+				if (session()->get('kecepatan') == 'Kilat (1-2 Hari)') {
+					$harga = 25000;
+				} else {
+					$harga = 15000;
+				}
+				break;
+
+			case "Cuci Setrika":
+				if (session()->get('kecepatan') == 'Kilat (1-2 Hari)') {
+					$harga = 30000;
+				} else {
+					$harga = 20000;
+				}
+				break;
+		}
+
 		$data = [
-			'title' => 'Checkout - LAundryKU'
+			'title' => 'Checkout - LAundryKU',
+			'harga' => $harga
 		];
 
 		return view('customer/checkout', $data);
@@ -83,6 +111,13 @@ class Customer extends BaseController
 
 		session()->set($data);
 		return redirect()->to('/laundry/checkout');
+	}
+
+	public function saveLayanan()
+	{
+		//Method untuk create pesanan ke dalam database
+		session()->set('checkout', FALSE); //wajib tambahin biar ga bisa ke checkout lg
+		dd($this->request->getVar('harga'));
 	}
 
 	public function invoice()

@@ -31,7 +31,7 @@
 
             <div class="col-md-6 mb-3">
                 <h5 for="time entry">Waktu Masuk</h5>
-                <p><?= session()->get('jam_masuk') ?>, <?= session()->get('tanggal_masuk') ?></p>
+                <p><?= session()->get('jam_masuk') ?>, <?= date('d-m-Y', strtotime(session()->get('tanggal_masuk'))) ?></p>
             </div>
         </div>
 
@@ -44,20 +44,21 @@
 
         <br>
 
-        <form class="needs-validation" novalidate action="<?= base_url('laundry/saveLayanan') ?>">
+        <form class="needs-validation" novalidate action="<?= base_url('laundry/saveLayanan') ?>" method="POST">
             <div class="col-block mb-4">
                 <h2>Penyerahan Laundry</h2>
                 <div class="custom-control custom-radio">
-                    <input id="kilat" name="penjemputan" type="radio" class="custom-control-input" value="jemput" required>
+                    <input id="kilat" name="penjemputan" type="radio" class="custom-control-input" value="jemput" onchange="tambahHarga(harga.value)" required>
                     <label class="custom-control-label" for="kilat">Dijemput oleh driver</label>
                 </div>
                 <div class="custom-control custom-radio">
-                    <input id="reguler" name="penjemputan" type="radio" class="custom-control-input" value="antar" required>
+                    <input id="reguler" name="penjemputan" type="radio" class="custom-control-input" value="antar" onchange="kurangHarga(harga.value)" required>
                     <label class="custom-control-label" for="reguler">Antar langsung ke toko</label>
                 </div>
                 <div class="col-md-6 mb-3">
                     <h5 for="kecepatan">Subtotal Harga</h5>
-                    <p>55 juta</p>
+                    <input type="hidden" value="<?= $harga ?>" id="harga" name="harga">
+                    <p id="view_harga"><?= $harga ?></p>
                 </div>
             </div>
             <div class="col-block mb-4">
@@ -70,4 +71,18 @@
         </form>
     </div>
 </div>
+
+<!-- JScript to calculate the price -->
+<script>
+    function tambahHarga(harga) {
+        document.getElementById('harga').value = (harga * 1) + 5000;
+        document.getElementById('view_harga').innerHTML = (harga * 1) + 5000;
+    }
+
+    function kurangHarga(harga) {
+        document.getElementById('harga').value = harga - 5000;
+        document.getElementById('view_harga').innerHTML = harga - 5000;
+    }
+</script>
+
 <?= $this->endSection(); ?>
