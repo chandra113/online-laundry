@@ -15,4 +15,9 @@ class UsersModel extends Model
     {
         return $this->table('users')->where('username', $username)->get()->getRow();
     }
+
+    public function findDetail($id)
+    {
+        return $this->where(['id' => $id])->first();
+    }
 }

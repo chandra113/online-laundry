@@ -19,7 +19,6 @@
         </thead>
         <tbody>
           <?php $i = 1; ?>
-          <!-- gatau ini apa, ngambil dari project perpus-->
           <?php foreach ($users as $u) : ?>
             <tr vertical-align="middle">
               <th scope="row"><?= $i++ ?></th>
@@ -29,7 +28,7 @@
               <td><?= $u['role'] ?></td>
               <td>
                 <!-- cek ulang fungsionalitas button nya -->
-                <a href="<?= base_url() ?>/admin/edit/<?= $u['id']; ?>" class="btn btn-warning">Edit</a>
+                <a href="<?= base_url() ?>/admin/edit-user/<?= $u['id']; ?>" class="btn btn-warning">Edit</a>
                 <a href="<?= base_url() ?>/admin/delete/<?= $u['id'] ?>" class="btn btn-danger" onclick="return confirm ('Apakah anda yakin?');">Delete</a>
               </td>
             </tr>

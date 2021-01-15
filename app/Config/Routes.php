@@ -48,6 +48,7 @@ $routes->get('/admin/userlist', 'Admin::userlist');
 $routes->get('/admin/transaksi', 'Admin::index');
 $routes->get('/admin/detail/(:num)', 'Admin::detail/$1');
 $routes->get('/admin/edit/(:num)', 'Admin::edit/$1');
+$routes->get('/admin/edit-user/(:num)', 'Admin::edit_user/$1');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <h2 class="my-3">Data Laundry Masuk</h2>
+            <h2 class="my-3">Layanan Setrika</h2>
 
             <form action="<?= base_url('/laundry/redirectCheckout') ?>" method="POST">
 

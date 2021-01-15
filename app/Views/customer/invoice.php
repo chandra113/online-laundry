@@ -36,7 +36,7 @@
                             <th>Kecepatan</th>
 
                             <th class="right">Penjemputan</th>
-                            <th class="right">Total</th>
+                            <th class="right">Total (sebelum ditimbang)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -81,7 +81,7 @@
                             </tr>
                             <tr>
                                 <td class="left">
-                                    <strong>Total</strong>
+                                    <strong>Total (sebelum ditimbang)</strong>
                                 </td>
                                 <td class="right">
                                     <strong><?= $invoice['total_harga']; ?></strong>
