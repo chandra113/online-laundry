@@ -92,6 +92,18 @@ class Admin extends BaseController
 		return view('administrator/edit_user', $data);
 	}
 
+	public function userlist()
+	{
+		//admin daftar user 
+
+		$data = [
+			'title' => 'Administrator - LAundryKU',
+			'users' => $this->usersModel->findAll()
+		];
+
+		return view('administrator/userlist', $data);
+	}
+
 	public function saveEditUser($id)
 	{
 		//Method untuk save edit userlist
@@ -116,15 +128,23 @@ class Admin extends BaseController
 		}
 	}
 
-	public function userlist()
+	public function delete($id)
 	{
-		//admin daftar user 
+		if (session()->get('role') == 2) {
+			return redirect()->to('/');
+		}
 
-		$data = [
-			'title' => 'Administrator - LAundryKU',
-			'users' => $this->usersModel->findAll()
-		];
+		$this->orderModel->delete($id);
+		return redirect()->to('/admin/transaksi');
+	}
 
-		return view('administrator/userlist', $data);
+	public function deleteUser($id)
+	{
+		if (session()->get('role') == 2) {
+			return redirect()->to('/');
+		}
+
+		$this->usersModel->delete($id);
+		return redirect()->to('/admin/userlist');
 	}
 }

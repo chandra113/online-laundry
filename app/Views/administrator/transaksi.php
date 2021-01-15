@@ -27,6 +27,7 @@
               <td><?= $o['status_pembayaran'] ?></td>
               <td>
                 <a href="<?= base_url() ?>/admin/detail/<?= $o['id']; ?>" class="btn btn-warning">Detail</a>
+                <a href="<?= base_url() ?>/admin/delete/<?= $o['id'] ?>" class="btn btn-danger" onclick="return confirm ('Proses ini TIDAK DAPAT DIBATALKAN. Apakah anda yakin?');">Delete</a>
               </td>
             </tr>
           <?php endforeach; ?>
