@@ -17,6 +17,10 @@ class Order extends Migration
 				'unsigned' => TRUE,
 				'auto_increment' => TRUE
 			],
+			'nomor_invoice' => [
+				'type' => 'INT',
+				'constraint' => 50
+			],
 			'nama_pelanggan' => [
 				'type' => 'VARCHAR',
 				'constraint' => 50
@@ -37,8 +41,7 @@ class Order extends Migration
 				'type' => 'DATE'
 			],
 			'jam_masuk' => [
-				'type' => 'VARCHAR',
-				'constraint' => 100
+				'type' => 'TIME'
 			],
 			'alamat' => [
 				'type' => 'VARCHAR',
