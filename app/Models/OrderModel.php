@@ -8,13 +8,15 @@ class OrderModel extends Model
 {
     protected $table = 'order';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nama_pelanggan', 'nomor_invoice', 'nomor_ponsel', 'layanan', 'kecepatan', 'tanggal_masuk', 'jam_masuk', 'alamat', 'penjemputan', 'catatan', 'total_harga'];
+    protected $allowedFields = [
+        'nama_pelanggan', 'nomor_invoice', 'nomor_ponsel',
+        'layanan', 'kecepatan', 'tanggal_masuk',
+        'jam_masuk', 'alamat', 'penjemputan',
+        'catatan', 'total_harga', 'status_pembayaran'
+    ];
 
-    public function getOrder($id = false)
+    public function getInvoice($nomor_invoice = false)
     {
-        if ($id == false) {
-            return $this->findAll();
-        }
-        return $this->where(['id' => $id])->first();
+        return $this->where(['nomor_invoice' => $nomor_invoice])->first();
     }
 }

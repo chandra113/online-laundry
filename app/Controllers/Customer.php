@@ -7,10 +7,10 @@ use App\Models\OrderModel;
 class Customer extends BaseController
 {
 	protected $orderModel;
-    public function __construct()
-    {
-        $this->orderModel = new OrderModel();
-    }
+	public function __construct()
+	{
+		$this->orderModel = new OrderModel();
+	}
 	public function index()
 	{
 		//tampilan utama (pilihan layanan)
@@ -122,32 +122,38 @@ class Customer extends BaseController
 	public function saveLayanan()
 	{
 		//Method untuk create pesanan ke dalam database
-		
-		session()->set('checkout', FALSE); //wajib tambahin biar ga bisa ke checkout lg
+
+		$slugtanggal = str_replace("-", "", session()->get('tanggal_masuk'));
+		$slugjam = url_title(session()->get('jam_masuk'), '', false);
+		$sluginvoice = $slugtanggal . $slugjam . session()->get('id_user');
+
+		session()->set('checkout', FALSE);
+
 		$this->orderModel->insert([
-			'nama_pelanggan'=>session()->get('fullname'),
-			'nomor_ponsel'=>session()->get('phone_number'),
-			'layanan'=> session()->get('layanan'),
+			'nomor_invoice' => $sluginvoice,
+			'nama_pelanggan' => session()->get('fullname'),
+			'nomor_ponsel' => session()->get('phone_number'),
+			'layanan' => session()->get('layanan'),
 			'kecepatan' => session()->get('kecepatan'),
 			'tanggal_masuk' => session()->get('tanggal_masuk'),
 			'jam_masuk' => session()->get('jam_masuk'),
 			'alamat' => session()->get('alamat'),
-			'penjemputan'=> $this->request->getVar('penjemputan'),
-			'catatan'=>$this->request->getVar('catatan'),
-			'total_harga'=>$this->request->getVar('harga'),
+			'penjemputan' => $this->request->getVar('penjemputan'),
+			'catatan' => $this->request->getVar('catatan'),
+			'total_harga' => $this->request->getVar('harga'),
+			'status_pembayaran' => 'Belum Dibayar'
 		]);
 
-		session()->setFlashdata('msg', 'Data berhasil di save');
-
-		return redirect()->to('/laundry/invoice');
+		return redirect()->to('/laundry/invoice/' . $sluginvoice);
 	}
 
-	public function invoice()
+	public function invoice($nomor_invoice)
 	{
 		//tampilan invoice
 
 		$data = [
-			'title' => 'Invoice - LAundryKU'
+			'title' => 'Invoice - LAundryKU',
+			'invoice' => $this->orderModel->getInvoice($nomor_invoice)
 		];
 
 		return view('customer/invoice', $data);

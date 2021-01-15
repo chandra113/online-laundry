@@ -2,7 +2,6 @@
 
 <?= $this->section('content'); ?>
 
-<!-- TODO: Cari cara untuk otomatisin view harga kalo diklik radio buttonnya -->
 <div class="container">
     <div class="py-5 text-center">
         <h2>Checkout</h2>
