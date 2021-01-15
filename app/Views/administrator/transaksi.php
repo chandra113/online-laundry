@@ -19,12 +19,11 @@
         <tbody>
           <?php $i = 1; ?>
           <!-- gatau ini apa, ngambil dari project perpus-->
-          <?php foreach ($book as $b) : ?>
+          <?php foreach ($order as $o) : ?>
             <tr vertical-align="middle">
-              <th scope="row"><?= $i++ ?></th>
-              <td><?= $b['nomor_invoice'] ?></td>
-              <td><?= $b['total_harga'] ?></td>
-              <td><?= $b['status_pembayaran'] ?></td>
+              <th scope="row"><?= $o['nomor_invoice'] ?></th>
+              <td><?= $o['total_harga'] ?></td>
+              <td><?= $o['status_pembayaran'] ?></td>
               <td>
                 <!-- button ke method detail atau edit -->
                 <!-- route dan controller nya jangan lupa-->

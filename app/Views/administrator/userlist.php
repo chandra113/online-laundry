@@ -6,7 +6,6 @@
     <div class="col">
 
       <h1 class="mt-2">Daftar User</h1>
-      <a href="<?= base_url('admin/create') ?>" class="btn btn-primary mb-3">Tambah User</a>
       <table class="table table-hover">
         <thead>
           <tr>
@@ -21,17 +20,17 @@
         <tbody>
           <?php $i = 1; ?>
           <!-- gatau ini apa, ngambil dari project perpus-->
-          <?php foreach ($book as $b) : ?>
+          <?php foreach ($users as $u) : ?>
             <tr vertical-align="middle">
               <th scope="row"><?= $i++ ?></th>
-              <td><?= $b['fullname'] ?></td>
-              <td><?= $b['username'] ?></td>
-              <td><?= $b['email'] ?></td>
-              <td><?= $b['role'] ?></td>
+              <td><?= $u['fullname'] ?></td>
+              <td><?= $u['username'] ?></td>
+              <td><?= $u['email'] ?></td>
+              <td><?= $u['role'] ?></td>
               <td>
                 <!-- cek ulang fungsionalitas button nya -->
-                <a href="<?= base_url() ?>/admin/edit/<?= $b['slug']; ?>" class="btn btn-warning">Edit</a>
-                <a href="<?= base_url() ?>/admin/delete/<?= $b['id'] ?>" class="btn btn-danger" onclick="return confirm ('Apakah anda yakin?');">Delete</a>
+                <a href="<?= base_url() ?>/admin/edit/<?= $u['id']; ?>" class="btn btn-warning">Edit</a>
+                <a href="<?= base_url() ?>/admin/delete/<?= $u['id'] ?>" class="btn btn-danger" onclick="return confirm ('Apakah anda yakin?');">Delete</a>
               </td>
             </tr>
           <?php endforeach; ?>
