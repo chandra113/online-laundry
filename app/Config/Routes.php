@@ -46,6 +46,8 @@ $routes->post('/laundry/saveLayanan', 'Customer::saveLayanan');
 $routes->post('/laundry/savePembayaran', 'Customer::savePembayaran');
 $routes->get('/admin/userlist', 'Admin::userlist');
 $routes->get('/admin/transaksi', 'Admin::index');
+$routes->get('/admin/detail/(:num)', 'Admin::detail/$1');
+$routes->get('/admin/edit/(:num)', 'Admin::edit/$1');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

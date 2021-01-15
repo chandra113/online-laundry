@@ -19,4 +19,8 @@ class OrderModel extends Model
     {
         return $this->where(['nomor_invoice' => $nomor_invoice])->first();
     }
+    public function findDetail($id)
+    {
+        return $this->where(['id' => $id])->first();
+    }
 }

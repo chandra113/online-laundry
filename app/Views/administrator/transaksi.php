@@ -11,7 +11,7 @@
         <thead>
           <tr>
             <th scope="col">Nomor Invoice</th>
-            <th scope="col">Harga</th>
+            <th scope="col">Pilihan Layanan</th>
             <th scope="col">Status Pesanan</th>
             <th scope="col">Aksi</th>
           </tr>
@@ -22,12 +22,12 @@
           <?php foreach ($order as $o) : ?>
             <tr vertical-align="middle">
               <th scope="row"><?= $o['nomor_invoice'] ?></th>
-              <td><?= $o['total_harga'] ?></td>
+              <td><?= $o['layanan'] ?> - <?= $o['kecepatan'] ?></td>
               <td><?= $o['status_pembayaran'] ?></td>
               <td>
                 <!-- button ke method detail atau edit -->
                 <!-- route dan controller nya jangan lupa-->
-                <a href="<?= base_url() ?>/admin/detail" class="btn btn-warning">Detail</a>
+                <a href="<?= base_url() ?>/admin/detail/<?= $o['id']; ?>" class="btn btn-warning">Detail</a>
                 <!-- <a href=" < ?= base_url() ?>/Admin/detail < ?= $b ['slug']; ?>" class="btn btn-warning">Detail</a> -->
               </td>
             </tr>

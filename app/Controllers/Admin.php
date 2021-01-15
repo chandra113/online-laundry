@@ -29,11 +29,35 @@ class Admin extends BaseController
 		];
 
 		return view('administrator/transaksi', $data);
+    }
+    
+	public function detail($id)
+	{
+		//tampilan utama admin
+
+		$data = [
+			'title' => 'Administrator - LAundryKU',
+			'order' => $this->orderModel->findDetail($id)
+		];
+
+		return view('administrator/detail_transaksi', $data);
+    }
+    
+	public function edit($id)
+	{
+		//tampilan edit transaksi
+
+		$data = [
+			'title' => 'Administrator - LAundryKU',
+			'order' => $this->orderModel->getInvoice($id)
+		];
+
+		return view('administrator/edit_transaksi', $data);
 	}
 
 	public function userlist()
 	{
-		//admin create user 
+		//admin daftar user 
 
 		$data = [
 			'title' => 'Administrator - LAundryKU',
