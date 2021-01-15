@@ -2,9 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\OrderModel;
+
 class Customer extends BaseController
 {
-
+	protected $orderModel;
+    public function __construct()
+    {
+        $this->orderModel = new OrderModel();
+    }
 	public function index()
 	{
 		//tampilan utama (pilihan layanan)
@@ -117,7 +123,22 @@ class Customer extends BaseController
 	{
 		//Method untuk create pesanan ke dalam database
 		session()->set('checkout', FALSE); //wajib tambahin biar ga bisa ke checkout lg
-		dd($this->request->getVar('harga'));
+		$this->orderModel->insert([
+			'nama_pelanggan'=>session()->get('fullname'),
+			'nomor_ponsel'=>session()->get('phone_number'),
+			'layanan'=> session()->get('layanan'),
+			'kecepatan' => session()->get('kecepatan'),
+			'tanggal_masuk' => session()->get('tanggal_masuk'),
+			'jam_masuk' => session()->get('jam_masuk'),
+			'alamat' => session()->get('alamat'),
+			'penjemputan'=> $this->request->getVar('penjemputan'),
+			'catatan'=>$this->request->getVar('catatan'),
+			'total_harga'=>$this->request->getVar('harga'),
+		]);
+
+		session()->setFlashdata('msg', 'Data berhasil di save');
+
+		return redirect()->to('/laundry/invoice');
 	}
 
 	public function invoice()
