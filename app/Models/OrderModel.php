@@ -8,7 +8,7 @@ class OrderModel extends Model
 {
     protected $table = 'order';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nama_pelanggan', 'nomor_ponsel', 'layanan', 'kecepatan', 'tanggal_masuk', 'jam_masuk', 'alamat','penjemputan', 'catatan', 'total_harga'];
+    protected $allowedFields = ['nama_pelanggan', 'nomor_invoice', 'nomor_ponsel', 'layanan', 'kecepatan', 'tanggal_masuk', 'jam_masuk', 'alamat', 'penjemputan', 'catatan', 'total_harga'];
 
     public function getOrder($id = false)
     {
