@@ -63,6 +63,10 @@ class Order extends Migration
 			'status_pembayaran' => [
 				'type' => 'VARCHAR',
 				'constraint' => 50
+			],
+			'bukti_bayar'=>[
+				'type' => 'VARCHAR',
+				'constraint' => 225
 			]
 		]);
 
