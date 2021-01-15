@@ -122,6 +122,7 @@ class Customer extends BaseController
 	public function saveLayanan()
 	{
 		//Method untuk create pesanan ke dalam database
+		
 		session()->set('checkout', FALSE); //wajib tambahin biar ga bisa ke checkout lg
 		$this->orderModel->insert([
 			'nama_pelanggan'=>session()->get('fullname'),
