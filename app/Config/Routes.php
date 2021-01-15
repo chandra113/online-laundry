@@ -44,6 +44,8 @@ $routes->get('/laundry/invoice/(:segment)', 'Customer::invoice/$1');
 $routes->post('/laundry/redirectCheckout', 'Customer::redirectCheckout');
 $routes->post('/laundry/saveLayanan', 'Customer::saveLayanan');
 $routes->post('/laundry/savePembayaran', 'Customer::savePembayaran');
+$routes->post('/admin/create', 'Admin::create_user');
+$routes->post('/admin/transaksi', 'Admin::index');
 /**
  * --------------------------------------------------------------------
  * Additional Routing
