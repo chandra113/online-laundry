@@ -43,6 +43,7 @@ $routes->get('/laundry/pembayaran', 'Customer::pembayaran');
 $routes->get('/laundry/invoice/(:segment)', 'Customer::invoice/$1');
 $routes->post('/laundry/redirectCheckout', 'Customer::redirectCheckout');
 $routes->post('/laundry/saveLayanan', 'Customer::saveLayanan');
+$routes->post('/laundry/savePembayaran', 'Customer::savePembayaran');
 /**
  * --------------------------------------------------------------------
  * Additional Routing

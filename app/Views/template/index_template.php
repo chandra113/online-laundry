@@ -69,5 +69,21 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script>
+  function previewImg(){
+    const bukti_bayar= document.querySelector('#bukti_bayar');
+    const bukti_bayarLabel= document.querySelector('.custom-file-label');
+    const imgPreview= document.querySelector('.img-preview');
 
+    bukti_bayarLabel.textContent = bukti_bayar.files[0].name;
+    
+    const filebukti_bayar = new FileReader();
+    filebukti_bayar.readAsDataURL(bukti_bayar.files[0]);
+
+    filebukti_bayar.onload= function(e){
+      imgPreview.src = e.target.result;
+    } 
+  }
+    
+  </script>
 </html>

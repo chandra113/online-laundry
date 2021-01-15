@@ -15,7 +15,7 @@ class OrderModel extends Model
         'catatan', 'total_harga', 'status_pembayaran'
     ];
 
-    public function getInvoice($nomor_invoice = false)
+    public function getInvoice($nomor_invoice)
     {
         return $this->where(['nomor_invoice' => $nomor_invoice])->first();
     }

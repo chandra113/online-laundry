@@ -6,7 +6,7 @@
         <div class="col-8">
             <h2 class="my-3">Pembayaran</h2>
 
-            <form action="<?= base_url('/laundry/savePembayaran') ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= base_url('/laundry/redirectCheckout') ?>" method="POST">
 
                 <div class="row mb-3">
                     <label for="nomor_invoice" class="col-sm-3 col-form-label">Nomor Invoice</label>
@@ -44,17 +44,8 @@
                 </div>
 
                 <div class="row mb-3">
-                    <label for="bukti_bayar" class="col-sm-2 col-form-label">Foto Bukti Bayar</label>
-                    <div class="col-sm-2">
-                        <img src="/img/default.jpg" class="img-thumbnail img-preview" >
-                    </div>
-                    <div class="col-sm-8">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input " id="bukti_bayar" name="bukti_bayar" onchange=" previewImg()" required>
-                            <label class="custom-file-label" for="bukti_bayar">Pilih Gambar</label> 
-                           
-                        </div>
-                    </div>
+                    <label for="bukti_bayar" class="col-sm-3 col-form-label">Foto Bukti Bayar</label>
+                    <input class="form-control" type="file" id="bukti_bayar" name="bukti_bayar" required>
                 </div>
             
                 <div class="form-group row">

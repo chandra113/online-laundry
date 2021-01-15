@@ -3,16 +3,13 @@
 namespace App\Controllers;
 
 use App\Models\OrderModel;
-use App\Models\PembayaranModel;
 
 class Customer extends BaseController
 {
 	protected $orderModel;
-	protected $pembayaranModel;
 	public function __construct()
 	{
 		$this->orderModel = new OrderModel();
-		$this->pembayaranModel = new PembayaranModel();
 	}
 	public function index()
 	{
@@ -131,7 +128,7 @@ class Customer extends BaseController
 		$sluginvoice = $slugtanggal . $slugjam . session()->get('id_user');
 
 		session()->set('checkout', FALSE);
-		
+
 		$this->orderModel->insert([
 			'nomor_invoice' => $sluginvoice,
 			'nama_pelanggan' => session()->get('fullname'),
@@ -146,32 +143,10 @@ class Customer extends BaseController
 			'total_harga' => $this->request->getVar('harga'),
 			'status_pembayaran' => 'Belum Dibayar'
 		]);
-		return redirect()->to('/laundry/invoice/' . $sluginvoice);
-	}
-
-	public function savePembayaran(){
-		//Method untuk create pesanan ke dalam database
-
-		$slugtanggal = str_replace("-", "", session()->get('tanggal_masuk'));
-		$slugjam = url_title(session()->get('jam_masuk'), '', false);
-		$sluginvoice = $slugtanggal . $slugjam . session()->get('id_user');
-
-
-		$fileBuktiBayar = $this->request->getFile('bukti_bayar');
-        $fileBuktiBayar->move('img');
-		$namaBuktiBayar = $fileBuktiBayar->getName();
-		
-		$this->pembayaranModel->insert([
-			'nomor_invoice' => $sluginvoice,
-			'phone_number' => session()->get('phone_number'),
-			'nama_bank' => $this->request->getVar('nama_bank'),
-			'nomor_rekening' => $this->request->getVar('nomor_rekening'),
-			'status_pembayaran' => 'Sedang divalidasi',
-			'bukti_bayar' => $namaBuktiBayar
-		]);
 
 		return redirect()->to('/laundry/invoice/' . $sluginvoice);
 	}
+
 	public function invoice($nomor_invoice)
 	{
 		//tampilan invoice
