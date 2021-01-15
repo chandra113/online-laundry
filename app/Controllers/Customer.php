@@ -158,4 +158,15 @@ class Customer extends BaseController
 
 		return view('customer/invoice', $data);
 	}
+
+	public function pembayaran()
+	{
+		//tampilan pembayaran
+
+		$data = [
+			'title' => 'Pembayaran - LAundryKU'
+		];
+
+		return view('customer/pembayaran', $data);
+	}
 }

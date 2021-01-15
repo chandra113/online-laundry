@@ -39,7 +39,7 @@ $routes->get('/laundry/cuci', 'Customer::cuci');
 $routes->get('/laundry/setrika', 'Customer::setrika');
 $routes->get('/laundry/cuci-setrika', 'Customer::cuci_setrika');
 $routes->get('/laundry/checkout', 'Customer::checkout');
-$routes->get('/laundry/catatan', 'Customer::catatan');
+$routes->get('/laundry/pembayaran', 'Customer::pembayaran');
 $routes->get('/laundry/invoice/(:segment)', 'Customer::invoice/$1');
 $routes->post('/laundry/redirectCheckout', 'Customer::redirectCheckout');
 $routes->post('/laundry/saveLayanan', 'Customer::saveLayanan');
