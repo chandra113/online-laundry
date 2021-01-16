@@ -106,6 +106,40 @@ class Customer extends BaseController
 		return view('customer/checkout', $data);
 	}
 
+	public function invoice($nomor_invoice)
+	{
+		//tampilan invoice
+
+		$data = [
+			'title' => 'Invoice - LAundryKU',
+			'invoice' => $this->orderModel->getInvoice($nomor_invoice)
+		];
+
+		return view('customer/invoice', $data);
+	}
+
+	public function pembayaran($nomor_invoice)
+	{
+		//tampilan pembayaran
+
+		$data = [
+			'title' => 'Pembayaran - LAundryKU',
+			'invoice' => $this->orderModel->getInvoice($nomor_invoice)
+		];
+
+		return view('customer/pembayaran', $data);
+	}
+
+	public function dashboard($nomor_ponsel)
+	{
+		$data = [
+			'title' => 'Dashboard - LAundryKU',
+			'dashboard' => $this->orderModel->getDashboard($nomor_ponsel)
+		];
+
+		return view('customer/dashboard', $data);
+	}
+
 	public function redirectCheckout()
 	{
 		//Method untuk memproses form layanan
@@ -131,7 +165,7 @@ class Customer extends BaseController
 		$sluginvoice = $slugtanggal . $slugjam . session()->get('id_user');
 
 		session()->set('checkout', FALSE);
-		
+
 		$this->orderModel->insert([
 			'nomor_invoice' => $sluginvoice,
 			'nama_pelanggan' => session()->get('fullname'),
@@ -144,54 +178,40 @@ class Customer extends BaseController
 			'penjemputan' => $this->request->getVar('penjemputan'),
 			'catatan' => $this->request->getVar('catatan'),
 			'total_harga' => $this->request->getVar('harga'),
-			'status_pembayaran' => 'Belum Dibayar'
+			'status_pembayaran' => 'Belum Dibayar',
+			'bukti_bayar' => NULL
 		]);
 		return redirect()->to('/laundry/invoice/' . $sluginvoice);
 	}
 
-	public function savePembayaran(){
-		//Method untuk create pesanan ke dalam database
-
-		$slugtanggal = str_replace("-", "", session()->get('tanggal_masuk'));
-		$slugjam = url_title(session()->get('jam_masuk'), '', false);
-		$sluginvoice = $slugtanggal . $slugjam . session()->get('id_user');
-
+	public function savePembayaran($id)
+	{
+		//Method untuk membayar pesanan
 
 		$fileBuktiBayar = $this->request->getFile('bukti_bayar');
-        $fileBuktiBayar->move('img');
+		$fileBuktiBayar->move('img');
 		$namaBuktiBayar = $fileBuktiBayar->getName();
-		
+
+
 		$this->pembayaranModel->insert([
-			'nomor_invoice' => $sluginvoice,
-			'phone_number' => session()->get('phone_number'),
+			'nomor_invoice' => $this->request->getVar('nomor_invoice'),
+			'phone_number' => $this->request->getVar('phone_number'),
 			'nama_bank' => $this->request->getVar('nama_bank'),
 			'nomor_rekening' => $this->request->getVar('nomor_rekening'),
 			'status_pembayaran' => 'Sedang divalidasi',
 			'bukti_bayar' => $namaBuktiBayar
 		]);
 
-		return redirect()->to('/laundry/invoice/' . $sluginvoice);
-	}
-	public function invoice($nomor_invoice)
-	{
-		//tampilan invoice
-
 		$data = [
-			'title' => 'Invoice - LAundryKU',
-			'invoice' => $this->orderModel->getInvoice($nomor_invoice)
+			'nomor_ponsel' => $this->request->getVar('phone_number'),
+			'status_pembayaran' => 'Sedang divalidasi',
+			'bukti_bayar' => $namaBuktiBayar
 		];
 
-		return view('customer/invoice', $data);
-	}
+		$this->orderModel->update($id, $data);
 
-	public function pembayaran()
-	{
-		//tampilan pembayaran
+		session()->setFlashdata('msg', 'Pembayaran Berhasil');
 
-		$data = [
-			'title' => 'Pembayaran - LAundryKU'
-		];
-
-		return view('customer/pembayaran', $data);
+		return redirect()->to('/laundry/dashboard/' . session()->get('phone_number'));
 	}
 }

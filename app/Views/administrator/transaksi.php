@@ -13,7 +13,7 @@
             <th scope="col">Nomor Invoice</th>
             <th scope="col">Nama Pelanggan</th>
             <th scope="col">Pilihan Layanan</th>
-            <th scope="col">Status Pesanan</th>
+            <th scope="col">Status Pembayaran</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>

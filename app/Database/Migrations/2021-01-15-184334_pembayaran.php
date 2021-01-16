@@ -1,4 +1,6 @@
-<?php namespace App\Database\Migrations;
+<?php
+
+namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
@@ -43,6 +45,6 @@ class Pembayaran extends Migration
 
 	public function down()
 	{
-		//
+		$this->forge->dropTable('pembayaran');
 	}
 }

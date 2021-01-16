@@ -29,9 +29,9 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="status_pesanan" class="col-sm-2 col-form-label">Status Pesanan</label>
+                    <label for="status_pembayaran" class="col-sm-2 col-form-label">Status Pembayaran</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="status_pesanan" name="status_pesanan" value="<?= $order['status_pembayaran']; ?>" disabled>
+                        <input type="text" class="form-control" id="status_pembayaran" name="status_pembayaran" value="<?= $order['status_pembayaran']; ?>" disabled>
                     </div>
                 </div>
 

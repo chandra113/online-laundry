@@ -2,8 +2,6 @@
 
 <?= $this->section('content'); ?>
 
-<span class="txt2"><?= session()->getFlashdata('msg') ?></span>
-
 <div class="container">
   <br>
   <h1>Pilih Layanan</h1>

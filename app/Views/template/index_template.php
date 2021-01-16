@@ -38,6 +38,16 @@
           <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
         </li>
 
+        <!-- Tombol login -->
+        <?php if (session()->has('login') == FALSE) : ?>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="<?= base_url('/auth/login') ?>" class="nav-link">Masuk</a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="<?= base_url('/auth/register') ?>" class="nav-link">Daftar</a>
+          </li>
+        <?php endif; ?>
+
         <!-- Menu Dropdown jika telah login -->
         <?php if (session()->has('login') && session()->get('login') == TRUE) : ?>
           <li class="nav-item dropdown">
@@ -49,11 +59,20 @@
               <!-- Ke Halaman Admin/index-->
               <?php if (session()->get('role') == 1) : ?>
                 <a class="dropdown-item" href="<?= base_url('/admin'); ?>">Administrator</a>
-                <div class="dropdown-divider"></div>
               <?php endif; ?>
+              <a class="dropdown-item" href="<?= base_url('/laundry/dashboard/' . session()->get('phone_number')); ?>">Dashboard</a>
+              <div class="dropdown-divider"></div>
               <!--Logout-->
               <a class="dropdown-item" href=" <?= base_url('/logout'); ?>">Logout</a>
             </div>
+          </li>
+        <?php endif; ?>
+        <?php if (session()->get('admin_mode') == TRUE) : ?>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="<?= base_url('/admin/transaksi') ?>" class="nav-link">Transaksi</a>
+          </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="<?= base_url('/admin/userlist') ?>" class="nav-link">Userlist</a>
           </li>
         <?php endif; ?>
       </ul>
@@ -69,21 +88,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-  <script>
-  function previewImg(){
-    const bukti_bayar= document.querySelector('#bukti_bayar');
-    const bukti_bayarLabel= document.querySelector('.custom-file-label');
-    const imgPreview= document.querySelector('.img-preview');
 
-    bukti_bayarLabel.textContent = bukti_bayar.files[0].name;
-    
-    const filebukti_bayar = new FileReader();
-    filebukti_bayar.readAsDataURL(bukti_bayar.files[0]);
-
-    filebukti_bayar.onload= function(e){
-      imgPreview.src = e.target.result;
-    } 
-  }
-    
-  </script>
 </html>

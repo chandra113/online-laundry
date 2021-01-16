@@ -23,4 +23,8 @@ class OrderModel extends Model
     {
         return $this->where(['id' => $id])->first();
     }
+    public function getDashboard($nomor_ponsel)
+    {
+        return $this->where(['nomor_ponsel' => $nomor_ponsel])->findAll();
+    }
 }

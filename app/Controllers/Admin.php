@@ -29,6 +29,8 @@ class Admin extends BaseController
 			'order' => $this->orderModel->findAll()
 		];
 
+		session()->set('admin_mode', TRUE);
+
 		return view('administrator/transaksi', $data);
 	}
 
